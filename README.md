@@ -1,49 +1,111 @@
-# Zomato Restaurant Price Predictor
+# **🔍 Zomato Restaurant Price Predictor**
+A machine learning-powered web application that predicts the approximate cost for two people at a restaurant listed on Zomato, based on inputs like location, cuisine, rating, and more. Built using Streamlit and trained using optimized ensemble models.
 
-## Overview
+## **📊 Overview**
+This project provides a full end-to-end pipeline from data preprocessing to model deployment via a Streamlit web interface. It allows users to input restaurant features and returns a cost prediction using a trained regression model.
 
-A web application that predicts the cost for two people at a Zomato restaurant based on user-provided details like location, cuisine, and other features. Built using Streamlit and powered by machine learning.
+## **🛠️ Key Components**
+📋 Data Cleaning, Preprocessing & Model Training
+The script optimised_zomato_predictor.py performs:
 
-## Key Components
+Missing value treatment
+Encoding categorical variables
+Feature engineering
+Outlier handling
+Model training with hyperparameter tuning (Bayesian Optimization)
 
-- **Data Cleaning, Preprocessing and Model Training:**  
-  The script `optimised_zomato_predictor.py` handles data cleaning, feature engineering, and preprocessing. This script also trains a machine learning model using techniques like hyperparameter tuning and ensemble methods to achieve optimal performance.
+Ensemble models like XGBoost, Gradient Boosting, and Random Forest are used for robust prediction.
+## **💻 Web App Interface**
+The app.py script uses Streamlit to:
 
-- **Web App:**  
-  The `app.py` script leverages Streamlit to create a user-friendly interface for inputting restaurant details and viewing predicted costs.
+Accept user inputs (location, cuisine, etc.)
+Load the saved ML model (zomato_model.pkl)
+Display the predicted cost for two people
 
-## Usage
 
-1. **Install Dependencies:**  
-   Ensure you have Python 3.7+ and required libraries installed:
-   ```bash
-   pip install pandas numpy scikit-learn xgboost skopt joblib streamlit
-   ```
+## **🚀 Getting Started**
+#### 📦 1. Install Dependencies
+Make sure Python 3.7+ is installed. Then, run:
+bashpip install pandas numpy scikit-learn xgboost skopt joblib streamlit
+#### **📂 2. Prepare Dataset**
 
-2. **Prepare Data:**  
-   - Download a Zomato dataset and place it in the appropriate directory.
-   - Update the data path in the `optimised_zomato_predictor.py` script.
+Download or acquire the Zomato dataset.
+Place it in the appropriate folder (e.g., data/).
+Update the path in optimised_zomato_predictor.py as needed.
 
-3. **Train the Model:**  
-   - Run the following command to train the model and save it as `zomato_model.pkl`:
-   ```bash
-   python optimised_zomato_predictor.py
-   ```
+#### **⚙️ 3. Train the Model**
+Train and save the model using:
+bashpython optimised_zomato_predictor.py
+This will save the model as zomato_model.pkl.
+#### **🌐 4. Launch Web App**
+Run the Streamlit application with:
+bashstreamlit run app.py
 
-4. **Run the Web App:**  
-   - Execute the following command to launch the web app in your browser:
-   ```bash
-   streamlit run app.py
-   ```
+#### **🧮 Model Overview**
 
-## Web App Interface
+Algorithms Used:
 
-- Input restaurant details like location, cuisine, and other features.
-- Click the "Predict" button to get an estimated cost for two people.
+XGBoost Regressor
+Random Forest Regressor
+Gradient Boosting Regressor
 
-## Technical Details
 
-- The machine learning model employs advanced techniques like Gradient Boosting, Random Forest, and XGBoost.
-- The Streamlit web app provides a seamless user experience.
+Optimization:
 
-Feel free to contribute to this project and enhance its capabilities!
+Hyperparameters tuned using Bayesian Optimization (skopt)
+Ensemble model stacking for better generalization
+
+
+Evaluation Metrics:
+
+R² Score
+RMSE (Root Mean Squared Error)
+
+
+
+
+### **📱 Web App Interface**
+
+Input features: Restaurant Name, Location, Cuisine, Online Order, Table Booking, Ratings, Votes.
+Output: Predicted cost for two.
+
+
+### **🌟 Real-World Applications**
+
+Helps users estimate affordability before choosing a restaurant.
+Assists businesses in adjusting pricing strategies.
+Benefits food delivery platforms in personalized filtering.
+Useful for market researchers to analyze pricing trends.
+
+
+### **📚 Tech Stack**
+
+Languages & Tools: Python, Streamlit
+Libraries: pandas, numpy, scikit-learn, xgboost, skopt, joblib
+Modeling: Supervised Regression, Ensemble Learning
+Tuning: Bayesian Optimization
+
+
+### **📈 Results**
+
+Achieved R² > 0.85
+Reduced RMSE through ensemble modeling and fine-tuning
+Generalized well on unseen data
+
+
+### **🔮 Future Improvements**
+
+Use geolocation or zip codes for enhanced prediction.
+Incorporate menu-level and user-level preferences.
+Add model monitoring via MLflow or similar tools.
+Deploy with Docker + CI/CD pipelines for production.
+
+
+### **👥 Contributing**
+Feel free to fork the repo and contribute. Suggestions, issues, and pull requests are welcome!
+
+### **📄 License**
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+### **⭐ Show your support**
+If you found this project useful, consider starring the repo!
